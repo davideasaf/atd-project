@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "dev": "nodemon server.ts",
+    "build": "tsc",
+    "start": "NODE_ENV=production node dist/production-server/server.js",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""
+  },
+  "name": "atd-graphql-server",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "author": "David Asaf <asaf.david.e@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "postgraphile": "^4.1.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.4",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.15.3",
+    "tslint-config-prettier": "^1.17.0"
+  }
+}
