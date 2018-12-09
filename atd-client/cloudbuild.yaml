@@ -1,0 +1,40 @@
+steps:
+  # npm install
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+    dir: 'atd-client'
+  # run tests
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'ci-test']
+    dir: 'atd-client'
+  # Build Container
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '.',
+        '--file',
+        'production.Dockerfile',
+        '-t',
+        'gcr.io/$PROJECT_ID/atd-client:$REVISION_ID',
+      ]
+    dir: 'atd-client'
+  # Push Container
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/atd-client:$REVISION_ID']
+    dir: 'atd-client'
+  # Deploy Container
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/${_DEPLOYMENT}'
+      - 'atd-client=gcr.io/$PROJECT_ID/atd-client:$REVISION_ID'
+      - '--namespace=atd-project'
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-east4-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
+    dir: 'atd-client'
+substitutions:
+  _CLUSTER_NAME: 'atd-project-cluster-staging'
+  _DEPLOYMENT: 'atd-client-staging'
