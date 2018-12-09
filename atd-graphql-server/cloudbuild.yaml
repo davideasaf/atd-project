@@ -22,6 +22,7 @@ steps:
       - 'image'
       - 'deployment/atd-graphql-server'
       - 'atd-graphql-server=gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID'
+      - '--namespace=atd-project'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-east4-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=atd-project-cluster'
