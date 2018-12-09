@@ -20,7 +20,7 @@ steps:
     args:
       - 'set'
       - 'image'
-      - 'deployment/atd-graphql-server'
+      - 'deployment/${_DEPLOYMENT}'
       - 'atd-graphql-server=gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID'
       - '--namespace=atd-project'
     env:
@@ -29,3 +29,4 @@ steps:
     dir: 'atd-graphql-server'
 substitutions:
   _CLUSTER_NAME: 'atd-project-cluster-staging'
+  _DEPLOYMENT: 'atd-graphql-server-staging-service'
