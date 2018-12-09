@@ -1,0 +1,21 @@
+steps:
+  # npm install
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+  # run tests
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', 'test']
+  # Build Container
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID']
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'set'
+      - 'image'
+      - 'atd-project/atd-graphql-server'
+      - 'my-container=gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID'
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=us-east4-a'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=atd-project-cluster	'
