@@ -25,5 +25,7 @@ steps:
       - '--namespace=atd-project'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-east4-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=atd-project-cluster'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
     dir: 'atd-graphql-server'
+    substitutions:
+      _CLUSTER_NAME:
