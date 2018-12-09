@@ -29,4 +29,4 @@ steps:
     dir: 'atd-graphql-server'
 substitutions:
   _CLUSTER_NAME: 'atd-project-cluster-staging'
-  _DEPLOYMENT: 'atd-graphql-server-staging-service'
+  _DEPLOYMENT: 'atd-graphql-server-staging'
