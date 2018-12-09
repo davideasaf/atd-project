@@ -12,7 +12,6 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_DATABASE = process.env.DB_DATABASE;
 
 const databaseConnString = `postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`;
-console.log('databaseConnString:', databaseConnString);
 
 const corsOptions = {
   origin: '*',
