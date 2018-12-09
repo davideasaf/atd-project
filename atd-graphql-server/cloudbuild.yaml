@@ -20,7 +20,7 @@ steps:
     args:
       - 'set'
       - 'image'
-      - 'atd-project/atd-graphql-server'
+      - 'deployment/atd-graphql-server'
       - 'my-container=gcr.io/$PROJECT_ID/atd-graphql-server:$REVISION_ID'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-east4-a'
