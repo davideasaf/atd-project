@@ -28,4 +28,4 @@ steps:
       - 'CLOUDSDK_CONTAINER_CLUSTER=${_CLUSTER_NAME}'
     dir: 'atd-graphql-server'
 substitutions:
-  _CLUSTER_NAME:
+  _CLUSTER_NAME: 'atd-project-cluster-staging'
