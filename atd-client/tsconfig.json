@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["es5", "es2017", "dom", "esnext.asynciterable"],
     "allowJs": true,
     "skipLibCheck": false,
     "esModuleInterop": true,
@@ -14,7 +15,5 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

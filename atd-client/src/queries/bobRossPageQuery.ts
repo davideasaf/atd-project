@@ -1,0 +1,81 @@
+import gql from 'graphql-tag';
+// TODO: Paginate requests. All data is necessary to build out graphs -- another solution is necessary
+export default gql`
+  query {
+    allBobRosses {
+      nodes {
+        title
+        appleFrame
+        appleFrame
+        auroraBorealis
+        barn
+        beach
+        boat
+        bridge
+        building
+        bushes
+        cabin
+        cactus
+        circleFrame
+        cirrus
+        cliff
+        clouds
+        conifer
+        cumulus
+        deciduous
+        dianeAndre
+        dock
+        doubleOvalFrame
+        farm
+        fence
+        fire
+        floridaFrame
+        flowers
+        fog
+        framed
+        grass
+        guest
+        halfCircleFrame
+        halfOvalFrame
+        hills
+        lake
+        lakes
+        lighthouse
+        mill
+        moon
+        mountain
+        mountains
+        night
+        ocean
+        ovalFrame
+        palmTrees
+        path
+        person
+        episode
+        rectangle3DFrame
+        rectangularFrame
+        river
+        rocks
+        seashellFrame
+        snow
+        snowyMountain
+        splitFrame
+        steveRoss
+        structure
+        portrait
+        sun
+        tombFrame
+        tree
+        trees
+        tripleFrame
+        waterfall
+        waves
+        windmill
+        windowFrame
+        winter
+        woodFramed
+        nodeId
+      }
+    }
+  }
+`;
